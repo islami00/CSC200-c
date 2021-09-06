@@ -96,7 +96,7 @@
         "args": [{ "value": "${fileBasenameNoExtension}.out", "quoting": "strong" }],
         "presentation": {
           "echo": true,
-          "reveal": "always",
+          "reveal": "silent",
           "focus": false,
           "panel": "dedicated",
           "showReuseMessage": true,
