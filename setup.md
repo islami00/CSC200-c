@@ -63,27 +63,27 @@ Got this from the default debugger (which works! after installing the c/c++ exte
 ```
 
 The above was obtained from running the c/c++ build and debug command.
-Get there either by:
-
+Get there either by:  
+  
 - right-click in c file and run build and debug
 - ctrl+p then > then c/c++ build and debug
   On init, you'll be asked to choose either gcc or cl.exe to use as a debugger
-
+  
 gcc yields the config above.
 Also, I've realised that with the above config, it seems I won't have to worry about setting this task up again now that I understand it.
 Instead of going agnostic, I could just gen this each place I am and have it be dumped as the default build task in .vscode
-
+  
 So yeah, that is my journey.
 The above is simply a build task, my cleanup task could be streamlined further to include that
-
+  
 # VSCODE
-
+  
 1. install code runner and c/c++ linter
 2. Setup terminal output globally or in .vscode\settings.json of your workspace home directory.(can be found by opening workspace and ticking the setting in workspace)
 3. [video](https://youtu.be/77v-Poud_io)
-
-# Compiler - WIndows
-
+  
+# Compiler - WIndows  
+  
 1. Install [msys2](https://www.msys2.org/) 64 bit for windows
 2. After install tick the launch msys264 or sth
 3. Then update packages `pacman -Syu` sync, yes, update. then finally set y to install updates
@@ -93,8 +93,8 @@ The above is simply a build task, my cleanup task could be streamlined further t
    1. pacman -Ss gcc
 7. Find the one with name GNU c/c++ for mingw64 and title:
    1. mingw-w64-x86_64-gcc
-      As of writing (19/08/21):
-
+      As of writing (19/08/21):  
+  
 ```sh
 mingw64/mingw-w64-x86_64-gcc 10.3.0-5 (mingw-w64-x86_64-toolchain)
     GNU Compiler Collection (C,C++,OpenMP) for MinGW-w64
@@ -105,7 +105,7 @@ mingw64/mingw-w64-x86_64-gcc 10.3.0-5 (mingw-w64-x86_64-toolchain)
 9. The setup all till the compiler was setting up a suitable unix env with a package manager(out of box with ubuntu
 10. Next step was the compiler, which can be installed with apt.
 11. compiler name: gcc for c, and g++ for c++
-12. Next we install the debugger
+12. Next we install the debugger  
 
 ```sh
 mingw64/mingw-w64-x86_64-gdb 10.2-2 (mingw-w64-x86_64-toolchain)
@@ -134,43 +134,43 @@ mingw64/mingw-w64-x86_64-gdb 10.2-2 (mingw-w64-x86_64-toolchain)
 
 # Separate, video desc with details
 
-[Download and install mingw](https://www.youtube.com/watch?v=0HD0pqVtsmw)
-In this tutorial you will learn to download and install MinGW-w64 ( Minimalist GNU for Windows ) toolset ( ( gcc g++ gdb ) ) for developing C and Cpp programs on windows 10 computer using msys2 Software Distribution and Building Platform.
-
+[Download and install mingw](https://www.youtube.com/watch?v=0HD0pqVtsmw)  
+In this tutorial you will learn to download and install MinGW-w64 ( Minimalist GNU for Windows ) toolset ( ( gcc g++ gdb ) ) for developing C and Cpp programs on windows 10 computer using msys2 Software Distribution and Building Platform.  
+  
 Topics :
-00:00 Introduction and Downloading Msys2
-03:12 Installing Mysys2 Updating Packages
-07:35 Installing gcc and g++
-12:14 Installing gdb debugger
-16:00 Setting up Path Environment Variable
-18:48 Check gcc g+= and gdb version in cmd
-
-First we will download and install msys2.
-After that we use the series of commands to install packages and update system.
-
-Commands used :
-Update the package database and base packages using
-pacman -Syu
-
-Update rest of the base packages
-pacman -Su
-
-Now open up the Msys MinGW terminal
-To install gcc and g++ for C and C++
-For 64 bit
-pacman -S mingw-w64-x86_64-gcc
-For 32 bit
-pacman -S mingw-w64-i686-gcc
-
-To install the debugger ( gdb ) for C and C++
-For 64 bit
-pacman -S mingw-w64-x86_64-gdb
-For 32 bit
-pacman -S mingw-w64-i686-gdb
-
-To check
-gcc version : gcc --version
-g++ version : g++ --version
-gdb version : gdb --version
-
-After installing these programs, we need to set the Path environment variable.
+00:00 Introduction and Downloading Msys2  
+03:12 Installing Mysys2 Updating Packages  
+07:35 Installing gcc and g++  
+12:14 Installing gdb debugger  
+16:00 Setting up Path Environment Variable  
+18:48 Check gcc g+= and gdb version in cmd  
+  
+First we will download and install msys2.  
+After that we use the series of commands to install packages and update system.  
+  
+Commands used :  
+Update the package database and base packages using  
+pacman -Syu  
+  
+Update rest of the base packages  
+pacman -Su  
+  
+Now open up the Msys MinGW terminal  
+To install gcc and g++ for C and C++  
+For 64 bit  
+pacman -S mingw-w64-x86_64-gcc  
+For 32 bit  
+pacman -S mingw-w64-i686-gcc  
+  
+To install the debugger ( gdb ) for C and C++  
+For 64 bit  
+pacman -S mingw-w64-x86_64-gdb  
+For 32 bit  
+pacman -S mingw-w64-i686-gdb  
+  
+To check  
+gcc version : gcc --version  
+g++ version : g++ --version  
+gdb version : gdb --version  
+  
+After installing these programs, we need to set the Path environment variable.  
