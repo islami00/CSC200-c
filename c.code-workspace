@@ -20,6 +20,9 @@
       "editor.suggest.insertMode": "replace",
       "editor.defaultFormatter": "ms-vscode.cpptools",
       "editor.semanticHighlighting.enabled": true
+    },
+    "files.associations": {
+      "*.md": "markdown"
     }
   },
 
