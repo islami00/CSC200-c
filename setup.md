@@ -3,7 +3,7 @@
 ## FUTURE ISLAM HERE, I agree with you, but..
 
 1. As I thought, vscode tasks are the way to go about this
-2. I have gcc and gdb installed as guided by that video
+2. I have gcc and gdb installed as guided by [that video](#separate-video-desc-with-details)
 3. Now all I have to do is setup platform agnostic tasks to work with them, and I have, for gcc
 4. To work with gdb, I'll have to do a bit more tinkering and understanding the commands, but I wholly understand it rn
 5. Sources:
