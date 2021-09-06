@@ -15,7 +15,7 @@ First off, I'd like to praise you on choosing the vscode path as it is a really 
 6. Follow the setup.md section corresponding to your os to `get` `gdb` and `gcc` installed 
 7. For `c++` , you'll need `g++` too...but that should be covered in the setup
 8. after that, you're all set.
-9. Test by opening one of the valid c files in this repo hint: open [this](./'h a.c') or [that](./projects/sources/rnd.c) 
+9. Test by opening one of the valid c files in this repo hint: open [this](./"h a.c") or [that](./proj1/sources/rnd.c) 
 10. on opening, run: `ctrl+p` (ctrl poppa) then `>` then type `build` or `tasks` and select `run default build task`, or follow the guide in [setup.md](./setup.md)
 
 Alternatively, you could run: `ctr+shift+p` then `tasks` and select build
