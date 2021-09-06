@@ -27,3 +27,4 @@ Don't you love vscode?
 ## Remarks
 
 Congrats, and make sure to stay awesome!
+Btw: You can delete everything but the .workspace file.
