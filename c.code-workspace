@@ -51,7 +51,7 @@
           "focus": false,
           "panel": "shared",
           "showReuseMessage": true,
-          "clear": false
+          "clear": true
         },
         "group": "build",
         "problemMatcher": ["$gcc"]
@@ -73,7 +73,7 @@
           "focus": false,
           "panel": "shared",
           "showReuseMessage": true,
-          "clear": false
+          "clear": true
         },
         "dependsOn": ["Compile"],
         "dependsOrder": "sequence"
@@ -97,7 +97,7 @@
           "focus": false,
           "panel": "dedicated",
           "showReuseMessage": true,
-          "clear": false
+          "clear": true
         },
         "dependsOn": ["Open file"],
         "dependsOrder": "sequence",
@@ -109,6 +109,6 @@
     ]
   },
   "extensions": {
-    "recommendations": ["cschlosser.doxdocgen", "ms-vscode.cpptools"]
+    "recommendations": ["cschlosser.doxdocgen", "ms-vscode.cpptools", "yzhang.markdown-all-in-one"]
   }
 }
