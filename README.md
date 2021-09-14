@@ -10,9 +10,9 @@ First off, I'd like to praise you on choosing the vscode path as it is a really 
 1. clone this repository
 2. Install vscode
 3. Open the .workspace file in this folder with vscode
-4. (Optional - just to allow for notetaking in md and reading this file in vscode)Install markdown preview all in one - one of the recommended workspace extensions 
+4. Install markdown preview all in one - one of the recommended workspace extensions (Optional - just to allow for notetaking in md and reading this file in vscode)
 5. Install the recommended extensions
-6. Follow the setup.md section corresponding to your os to `get` `gdb` and `gcc` installed 
+6. Follow the [setup.md](./setup.md) section corresponding to your os to get `gdb` and `gcc` installed 
 7. For `c++` , you'll need `g++` too...but that should be covered in the setup
 8. after that, you're all set.
 9. Test by opening one of the valid c files in this repo hint: open [this](./h%20a.c) or [that](./proj1/sources/rnd.c) 
