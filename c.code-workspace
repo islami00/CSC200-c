@@ -59,7 +59,6 @@
         "group": "build",
         "problemMatcher": ["$gcc"]
       },
-
       {
         "label": "Open file",
         "type": "shell",
@@ -76,10 +75,12 @@
           "focus": false,
           "panel": "shared",
           "showReuseMessage": true,
+          // make this false so it keeps the results
           "clear": false
         },
         "dependsOn": ["Compile"],
-        "dependsOrder": "sequence"
+        "dependsOrder": "sequence",
+        "problemMatcher": ["$gcc"]
       },
 
       {
