@@ -85,14 +85,17 @@ The above is simply a build task, my cleanup task could be streamlined further t
 # Compiler - WIndows  
   
 1. Install [msys2](https://www.msys2.org/) 64 bit for windows
-2. After install tick the launch msys264 or sth
-3. Then update packages `pacman -Syu` sync, yes, update. then finally set y to install updates
-4. Then go to msys2 msys , run pacman -Su to update core packages.
-5. Then open msys2 mingw x64
-6. Search for gcc compiler for c/c++ and openMP for 64bit
-   1. pacman -Ss gcc
+2. After install tick the launch msys264 on the last page of the installer.
+3. Then update packages `pacman -Syu`.  
+   1. flags explained: sync, yes, update. 
+   2. Then finally answer y to install updates.
+4. Then go to `msys2 msys` , run `pacman -Su` to update core packages.
+   1. select yes also
+5. Then open `msys2 mingw x64`
+6. (Optional,skip to 8) Search for gcc compiler for c/c++ and openMP for 64bit
+   1. `pacman -Ss gcc`
 7. Find the one with name GNU c/c++ for mingw64 and title:
-   1. mingw-w64-x86_64-gcc
+   1. `mingw-w64-x86_64-gcc`
       As of writing (19/08/21):  
   
 ```sh
@@ -101,21 +104,21 @@ mingw64/mingw-w64-x86_64-gcc 10.3.0-5 (mingw-w64-x86_64-toolchain)
 
 ```
 
-8. Install with : `pacman -S mingw-w64-x86_64-gcc`
-9. The setup all till the compiler was setting up a suitable unix env with a package manager(out of box with ubuntu
-10. Next step was the compiler, which can be installed with apt.
-11. compiler name: gcc for c, and g++ for c++
-12. Next we install the debugger  
+8. Install with : `pacman -S mingw-w64-x86_64-gcc`  - Compiler installed for windows and C.
+9. While that is loading, the entire setup till the compiler is essentially setting up a suitable unix env with a package manager (which comes out of the box with ubuntu or wsl).
+10. (ubuntu) the difference here is that we could use apt.
+11. compiler name: `gcc` for c, and `g++` for c++
+12. Next we install the debugger
 
 ```sh
 mingw64/mingw-w64-x86_64-gdb 10.2-2 (mingw-w64-x86_64-toolchain)
     GNU Debugger (mingw-w64)
 ```
 
-13. Note how most of our packages have the mingw-w64-x86_64 toolchain
+13. Note how most of our packages have the `mingw-w64-x86_64` toolchain
 14. cmd: `pacman -S mingw-w64-x86_64-gdb`
-    That's the final install. We now have all gcc,g++, and gdb/ compilers and debuggers
-15. Note: gcc and g++ install a tear down gdb version. Atleast the second last stable major release
+    That's the final install. We now have all `gcc`,`g++`, and `gdb`:  compilers and debuggers
+15. Note: `gcc` and `g++` install a tear down `gdb` version. Atleast the second last stable major release - ubuntu I guess. At this point, windows only has `gcc` and `gdb`. The essentials.
 
 # Adding gcc, gdb to path
 
