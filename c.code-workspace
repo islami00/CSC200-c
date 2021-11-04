@@ -7,7 +7,6 @@
 
   "settings": {
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
-
     "[c]": {
       "editor.wordBasedSuggestions": false,
       "editor.defaultFormatter": "ms-vscode.cpptools",
@@ -37,17 +36,9 @@
         },
         "command": "gcc",
         "windows": {
-          "args": [
-            { "value": "${fileBasename}", "quoting": "strong" },
-            "-o",
-            "${fileBasenameNoExtension}.exe"
-          ]
+          "args": [{ "value": "${fileBasename}", "quoting": "strong" }, "-o", "${fileBasenameNoExtension}.exe"]
         },
-        "args": [
-          { "value": "${fileBasename}", "quoting": "strong" },
-          "-o",
-          "${fileBasenameNoExtension}.out"
-        ],
+        "args": [{ "value": "${fileBasename}", "quoting": "strong" }, "-o", "${fileBasenameNoExtension}.out"],
         "presentation": {
           "echo": true,
           "reveal": "always",
@@ -113,6 +104,11 @@
     ]
   },
   "extensions": {
-    "recommendations": ["cschlosser.doxdocgen", "ms-vscode.cpptools", "yzhang.markdown-all-in-one"]
+    "recommendations": [
+      "cschlosser.doxdocgen",
+      "ms-vscode.cpptools",
+      "yzhang.markdown-all-in-one",
+      "yzane.markdown-pdf"
+    ]
   }
 }
