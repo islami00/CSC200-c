@@ -1,16 +1,17 @@
-// ID: 201103018 Dept: Computer Science
+// ID : 201103018 Dept : Computer Science
+
 #include <stdio.h>
 
 int main()
 
 {
     // declare sum,x;
-    int sum,x;
+    int sum, x;
     // initialize sum,x to 0,1 respectively.
-    x=1;
-    sum=0;
+    x = 1;
+    sum = 0;
     // increment sum by x
-    sum+= x;
+    sum += x;
     // print
     printf("The sum is %d", sum);
 

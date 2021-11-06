@@ -1,4 +1,4 @@
-// ID: 201103018 Dept: Computer Science
+// ID : 201103018 Dept : Computer Science
 
 #include <stdio.h>
 
