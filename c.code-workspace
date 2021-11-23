@@ -36,9 +36,9 @@
         },
         "command": "gcc",
         "windows": {
-          "args": [{ "value": "${fileBasename}", "quoting": "strong" }, "-o", "${fileBasenameNoExtension}.exe"]
+          "args": [{ "value": "${file}", "quoting": "strong" }, "-o", "${fileDirname}${pathSeparator}${fileBasenameNoExtension}.exe"]
         },
-        "args": [{ "value": "${fileBasename}", "quoting": "strong" }, "-o", "${fileBasenameNoExtension}.out"],
+        "args": [{ "value": "${file}", "quoting": "strong" }, "-o", "${fileDirname}${pathSeparator}${fileBasenameNoExtension}.out"],
         "presentation": {
           "echo": true,
           "reveal": "always",
