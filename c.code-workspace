@@ -66,14 +66,12 @@
           "focus": false,
           "panel": "shared",
           "showReuseMessage": true,
-          // make this false so it keeps the results
           "clear": false
         },
         "dependsOn": ["Compile"],
         "dependsOrder": "sequence",
         "problemMatcher": ["$gcc"]
       },
-
       {
         "label": "Cleanup",
         "type": "shell",
@@ -99,7 +97,8 @@
         "group": {
           "kind": "build",
           "isDefault": true
-        }
+        },
+        "problemMatcher": ["$gcc"]
       }
     ]
   },
