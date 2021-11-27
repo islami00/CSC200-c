@@ -1,0 +1,4 @@
+# Exclude because of debug task. Set debug up by selecting gcc for linux after clicking run in debug
+# While for windows click run in debug and select gcc for windows
+# Note: Messes up default build. Would need to do manual task selection
+.vscode
