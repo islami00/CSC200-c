@@ -4,12 +4,12 @@ void getNumbersRecursively(int arr[], int heighestIndex);
 int sumEvensRecursively(int arr[], int heighestIndex);
 
 int main() {
-  // collect the ten numbers in for loop.
+  // store and size
   int numbers[10];
   int lengthOfNumbers = sizeof(numbers) / sizeof(int);
-  // implicit decay to pointer for number. so it doesn't go out of scope. Memory
-  // safety??
+  // get
   getNumbersRecursively(numbers, lengthOfNumbers - 1);
+  // sum
   int sum = sumEvensRecursively(numbers, lengthOfNumbers - 1);
   printf("Sum is %d", sum);
   return 0;
@@ -36,5 +36,3 @@ int sumEvensRecursively(int arr[], int heighestIndex) {
     return arr[heighestIndex] + sumEvensRecursively(arr, heighestIndex - 1);
   }
 }
-// interesting. We use pointers to move complex structures easily without
-// muddling types

@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int main()
+// sjf schedulin
 
-{
+int main() {
   int n;
   printf("ENter a number");
   scanf("%d", &n);
@@ -20,19 +20,19 @@ int main()
   for (int i = 0; i < n; i++) {
     sum += array[i];
   }
-  // recursive
 
-  int recursiveArraySum(int arr[], int lastIndex) {
-    if (lastIndex < 0)
-      return 0;
-    else
-      return arr[lastIndex] + recursiveArraySum(arr, lastIndex - 1);
-  }
   int newSum = recursiveArraySum(array, n - 1);
+  printf("The recursive Sum is %d", newSum);
   average = sum / (float)n;
   printf("Sum is %f", sum);
-  printf("The recursive Sum is %d", newSum);
 
   printf("Average is %f", average);
   return 0;
+}  // recursive
+
+int recursiveArraySum(int arr[], int lastIndex) {
+  if (lastIndex < 0)
+    return 0;
+  else
+    return arr[lastIndex] + recursiveArraySum(arr, lastIndex - 1);
 }

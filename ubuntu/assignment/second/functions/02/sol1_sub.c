@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Palendrome for integers. Uses modulo. length requirement = int limit.
+// Palendrome for integers. Uses modulo. length requirement: int size.
 int palendromeInt(int number);
 int main() {
   int palNumber;
@@ -27,8 +27,8 @@ int palendromeInt(int number) {
     reverse += lastNumber;
     // step 4. truncate last digit from number
     safeNumber /= 10;
-    // step 5 loop - do while for explanation. Independent of initial run as
-    // it remains unaffected.
+    // step 5 loop - do while for explanation. Independent of initial run as it
+    // remains unaffected.
   } while (safeNumber > 0);
   if (reverse == number) pal = 1;
   return pal;
