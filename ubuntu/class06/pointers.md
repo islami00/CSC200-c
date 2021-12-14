@@ -57,7 +57,7 @@ int main() {
 
 ### Assignment
 
-Say we assign an address to a pointer and swap the value at that address by reassignment of the pointed variable, the value of the pointer remains the same but the value we get also changes dynamically which is another advantage of pointers.
+Say we assign an address of a variable to a pointer and swap the value at that address by reassignment of the pointed variable, the value of the pointer remains the same but the value we get by grabbing with `*` also changes dynamically which is another advantage of pointers.
 
 Hence,
 
@@ -93,3 +93,7 @@ int main() {
 Refs are pretty nice for dynamic stuff likethese without sacrificing memory too much. But be careful, no garbage collection! so be sure to deref your pointers after you're done especially in one-off situations like for loops
 
 Or if you point to something in a function, make sure to reset right after because the variable will be dropped once the function stops executing.
+
+# Typing
+
+Like all values, as you may have noticed, pointers also need to have a data type associated with them so we have a better grasp of the referenced value. (I'll be using pointers and references interchangeably due to the ease of visualising the latter)
