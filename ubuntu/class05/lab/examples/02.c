@@ -14,6 +14,7 @@ int main()
       // ref: https://stackoverflow.com/a/6322594/16071410
       printf(" or (%2$d,%1$d) = %3$d  ", i, j, a[i][j]);
     }
+    
     printf("\n");
   }
 

@@ -9,7 +9,7 @@ int main()
   // stud: Student[4] - not jsdoc, but imagine if there were size limits. Or...
   // stud: [Student, Student, Student ... repeatrecordTimes]
   int stud[records][fields];
-  int i, j;
+  int i;
   for (i = 0; i < records; i++) {
     printf("Enter the id and marks of the student: ");
     scanf("%d %d", &stud[i][0], &stud[i][1]);

@@ -15,7 +15,7 @@ int main() {
   return 0;
 }
 
-void getNumbersRecursively(int arr[], int heighestIndex) {
+void getNumbersRecursively(int* arr, int heighestIndex) {
   // stopping conditions
   if (heighestIndex < 0) return;
   // get nums
