@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>test1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="first-the-code">First the code.</h1>
+<h2 id="class---prodconsc">Class - prod_cons.c</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-keyword">int</span> mutex = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">int</span> full = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> empty = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// producer function</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
+  --mutex;
+  ++full;
+  --empty;
+  ++x;
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n Producer produces item %d "</span>, x);
+  ++mutex;
+}
+
+<span class="hljs-comment">// consumer function</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">consumer</span><span class="hljs-params">()</span> </span>{
+  --mutex;
+  --full;
+  ++empty;
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n Consumer consumes item %d "</span>, x);
+  x--;
+  ++mutex;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">int</span> n, i;
+  <span class="hljs-built_in">printf</span>(
+      <span class="hljs-string">"\n Press 1 for Producer"</span>
+      <span class="hljs-string">"\n Press 2 for Consumer"</span>
+      <span class="hljs-string">"\n Press 3 for Exit"</span>);
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>; i++) {
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nEnter your choice"</span>);
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;n);
+    <span class="hljs-keyword">switch</span> (n) {
+      <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">if</span> ((mutex == <span class="hljs-number">1</span>) &amp;&amp; (empty != <span class="hljs-number">0</span>)) {
+          producer();
+        } <span class="hljs-keyword">else</span> {
+          <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Buffer is full"</span>);
+        }
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">if</span> ((mutex == <span class="hljs-number">1</span>) &amp;&amp; (full != <span class="hljs-number">0</span>)) {
+          consumer();
+        } <span class="hljs-keyword">else</span> {
+          <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Buffer is empty"</span>);
+        }
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">break</span>;
+    }
+  }
+}
+
+</div></code></pre>
+<h2 id="mine---queuec">Mine - queue.c</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-comment">// initialise mutex. I.e lock that is set before using shared memory.</span>
+<span class="hljs-comment">// Lock that allows us to set  vars, then release after use.</span>
+<span class="hljs-comment">// ============================= Init state</span>
+<span class="hljs-keyword">int</span> mutex = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">int</span> full = <span class="hljs-number">0</span>;    <span class="hljs-comment">// i.e our slot is empty.</span>
+<span class="hljs-keyword">int</span> empty = <span class="hljs-number">10</span>;  <span class="hljs-comment">// -&gt; we have 10 free slots</span>
+<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>;       <span class="hljs-comment">// change the value of slot with this</span>
+<span class="hljs-comment">// ==============================</span>
+
+<span class="hljs-comment">// producer - no params. Like main (could pass args though)</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
+  --mutex;  <span class="hljs-comment">// lock. Ideally this starts our critical section</span>
+  <span class="hljs-comment">// increase number of full. i.e we produced.</span>
+  ++full;
+  <span class="hljs-comment">// decrease empty</span>
+  --empty;
+  <span class="hljs-comment">// put values in em</span>
+  ++x;
+  <span class="hljs-comment">// print what the producer has.</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n Producer produces item %d"</span>,
+         x);  <span class="hljs-comment">// It's producing now, and in turn reducing our empty slots</span>
+
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nProducer: x=%d, full=%d, empty=%d\n"</span>, x, full, empty);
+  <span class="hljs-comment">// release lock</span>
+  ++mutex;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">consumer</span><span class="hljs-params">()</span> </span>{
+  --mutex;
+  <span class="hljs-comment">// decrease full</span>
+  --full;
+  <span class="hljs-comment">// increase empty</span>
+  ++empty;
+  <span class="hljs-comment">// print what the consumer has. Right before consumption. Cuz produce retains</span>
+  <span class="hljs-comment">// state, consume destroys.</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nConsumer consumes item %d"</span>,
+         x);  <span class="hljs-comment">// It's consuming now, and in turn increasing our empty slots.</span>
+              <span class="hljs-comment">// What it shows is saying: Producer will produce item4 (or x+1)</span>
+              <span class="hljs-comment">// if consumer gobbledup 3 (or x)</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nConsumer: x=%d, full=%d, empty=%d\n"</span>, x, full, empty);
+  <span class="hljs-comment">// remove values</span>
+  --x;
+  <span class="hljs-comment">// release lock</span>
+  ++mutex;
+}
+
+<span class="hljs-comment">// Note: our mutex is always the same when no critical section is occuring. So,</span>
+<span class="hljs-comment">// both can do what they want</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-comment">// look at two cases. Producer. Consumer. Both.</span>
+  <span class="hljs-comment">// we don't know n times producers/processes will use.</span>
+  <span class="hljs-keyword">int</span> choice, n;
+  <span class="hljs-comment">// this should be out of the for loop to avoid irregular loop - put it once so</span>
+  <span class="hljs-comment">// we remember. WE could make it multiple for entropy</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n Enter how many times you want the process to run"</span>);
+  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;n);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>;
+       i++)  <span class="hljs-comment">// infinite loop?? or one time loop?? - Infinite. Switch breaks. We</span>
+             <span class="hljs-comment">// never leave the loop. Replace with while true.</span>
+  {
+    <span class="hljs-comment">// Menu. We might want to consume only or produce or both.</span>
+    <span class="hljs-built_in">printf</span>(
+        <span class="hljs-string">"\n Enter 1 for producer, 2 for consumer, 3 for both, and 4 to exit"</span>);
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;choice);
+    <span class="hljs-keyword">switch</span> (choice) {
+      <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">if</span> ((mutex == <span class="hljs-number">1</span>) &amp;&amp; (empty != <span class="hljs-number">0</span>)) {
+          <span class="hljs-comment">// copilot init: (mutex == 1) &amp;&amp; (full == 0) &amp;&amp; (empty ==</span>
+          <span class="hljs-comment">// 10). But last two are implied by empty!=0</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) {
+            producer();
+          }
+
+        } <span class="hljs-keyword">else</span>
+          <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n Buffer is full"</span>);  <span class="hljs-comment">// it doesn't necessarily have to be</span>
+                                        <span class="hljs-comment">// producer. Anyone else could occupy it</span>
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">if</span> ((mutex == <span class="hljs-number">1</span>) &amp;&amp; (full != <span class="hljs-number">0</span>)) {
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) {
+            consumer();
+          }
+        } <span class="hljs-keyword">else</span>
+          <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n Buffer is empty"</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        <span class="hljs-keyword">if</span> ((mutex == <span class="hljs-number">1</span>) &amp;&amp; (full != <span class="hljs-number">0</span>) &amp;&amp;
+            (empty != <span class="hljs-number">0</span>)) {  <span class="hljs-comment">// ha! i'd like to see this execute! It does cuz they cover up for each other</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) {
+            producer();
+            consumer();
+          }
+        } <span class="hljs-keyword">else</span>
+          <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n Buffer is either fu"</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n ERR: Invalid choice"</span>);
+        <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">break</span>;  <span class="hljs-comment">// this is unreachable</span>
+    };
+  }
+}
+
+</div></code></pre>
+<h1 id="trial-one---running-both-works">Trial one - running both works!</h1>
+<p><strong>Err with this: Consumer lags behind producer, see trial2</strong>
+Used sh for output for some highlighting</p>
+<pre class="hljs"><code><div>&gt; Executing task <span class="hljs-keyword">in</span> folder c: ./queue.out &lt;
+
+
+ Enter how many <span class="hljs-built_in">times</span> you want the process to run2
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit1
+
+ Producer produces item 1
+Producer: x=1, full=1, empty=9
+
+ Producer produces item 2
+Producer: x=2, full=2, empty=8
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit1
+
+ Producer produces item 3
+Producer: x=3, full=3, empty=7
+
+ Producer produces item 4
+Producer: x=4, full=4, empty=6
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit2
+
+Consumer consumes item 3
+Consumer: x=3, full=3, empty=7
+
+Consumer consumes item 2
+Consumer: x=2, full=2, empty=8
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit1
+
+ Producer produces item 3
+Producer: x=3, full=3, empty=7
+
+ Producer produces item 4
+Producer: x=4, full=4, empty=6
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit3
+
+ Producer produces item 5
+Producer: x=5, full=5, empty=5
+
+Consumer consumes item 4
+Consumer: x=4, full=4, empty=6
+
+ Producer produces item 5
+Producer: x=5, full=5, empty=5
+
+Consumer consumes item 4
+Consumer: x=4, full=4, empty=6
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit4
+
+ ERR: Invalid choice
+</div></code></pre>
+<p>From the outputs the following outliers should be noted:</p>
+<ul>
+<li>The last run where we do both consumer and producer is idempotent (doesn't change the overall state of the system) as expected. i.e our last consume is the same as the last produce before we started offf</li>
+<li>The other two runs of consumer/producer change the state of the system permanently.</li>
+</ul>
+<p>Inputs: <code>n=2</code>, <code>choice={1,2,3,4}</code> In order.</p>
+<p>Further confirmation can be done by testing another round of consume after the last choice in this trial.</p>
+<h1 id="trial-two">Trial two</h1>
+<ul>
+<li>Code from class runs as expected with a couple syntax errors (function names) and formatting (\E instead of \nE)</li>
+</ul>
+<p>i.e here:
+<code>printf(&quot;\nEnter your choice&quot;);</code></p>
+<p>here: <code>produce(); -&gt; producer();</code></p>
+<p>and here <code> consume(); -&gt; consumer();</code></p>
+<ul>
+<li>Found an error with my code i.e I was printing x after the mutations. The consumer should consume what the producer creates. Mine does things with +1 or -1.</li>
+</ul>
+<h2 id="out-from-class">Out from class</h2>
+<pre class="hljs"><code><div>
+&gt; Executing task <span class="hljs-keyword">in</span> folder c: ./prod_cons.out &lt;
+
+
+ Press 1 <span class="hljs-keyword">for</span> Producer
+ Press 2 <span class="hljs-keyword">for</span> Consumer
+ Press 3 <span class="hljs-keyword">for</span> Exit
+Enter your choice1
+
+ Producer produces item 1
+Enter your choice1
+
+ Producer produces item 2
+Enter your choice2
+
+ Consumer consumes item 2
+Enter your choice2
+
+ Consumer consumes item 1
+Enter your choice1
+
+ Producer produces item 1
+Enter your choice1
+
+ Producer produces item 2
+Enter your choice2
+
+ Consumer consumes item 2
+Enter your choice3
+
+
+</div></code></pre>
+<p>All processes run once only.
+So, following from the earlier input names:
+Input: <code>n=1</code>, <code>choice={1,1,2,2,1,1,2,3}</code> . In order.</p>
+<p><strong>Refactoring a bit on my end</strong>:
+Same input, same out. (4 to exit on my end)</p>
+<pre class="hljs"><code><div>
+Terminal will be reused by tasks, press any key to close it.
+
+&gt; Executing task <span class="hljs-keyword">in</span> folder c: ./queue.out &lt;
+
+
+ Enter how many <span class="hljs-built_in">times</span> you want the process to run1
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit1
+
+ Producer produces item 1
+Producer: x=1, full=1, empty=9
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit1
+
+ Producer produces item 2
+Producer: x=2, full=2, empty=8
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit2
+
+Consumer consumes item 2
+Consumer: x=2, full=1, empty=9
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit2
+
+Consumer consumes item 1
+Consumer: x=1, full=0, empty=10
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit1
+
+ Producer produces item 1
+Producer: x=1, full=1, empty=9
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit1
+
+ Producer produces item 2
+Producer: x=2, full=2, empty=8
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit2
+
+Consumer consumes item 2
+Consumer: x=2, full=1, empty=9
+
+ Enter 1 <span class="hljs-keyword">for</span> producer, 2 <span class="hljs-keyword">for</span> consumer, 3 <span class="hljs-keyword">for</span> both, and 4 to exit4
+
+ ERR: Invalid choice
+Terminal will be reused by tasks, press any key to close it.
+
+</div></code></pre>
+
+</body>
+</html>
