@@ -12,6 +12,8 @@ Assuming arr is an array of arbitrary size, and i is a pointer to the same data 
 
 I.e the code classSamp1.
 
+The general concept to note is that arrays by default decay to a pointer to the first element.
+
 # Pointer vid.
 
 Watch the 6th video before class
