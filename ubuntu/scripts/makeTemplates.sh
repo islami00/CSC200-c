@@ -1,4 +1,4 @@
-#1/usr/bin/bash
+#!/usr/bin/bash
 
 read -p "Enter the prefix for the new templates: " PREFIX
 echo $PWD
