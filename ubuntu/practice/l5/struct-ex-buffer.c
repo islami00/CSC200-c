@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define MaxBookName 2
+#define MaxBookName 256
 void simpleBufferClear();
 void strWarn(char* strptr, int maxLength, char* message);
 char* setupForPuts(char* stringPointer);
@@ -16,26 +16,28 @@ int main() {
   struct book arr[2] = {{"name1", 2.3, 2}, {"name2", 2.5, 5}};
   struct book arr2[2];
   for (size_t i = 0; i != 2; i++) {
-    printf("Enter name");
+    printf("Enter name ");
     fgets(arr2[i].name, MaxBookName, stdin);
     // Deal with str fallout.
     strWarn(arr2[i].name, MaxBookName,
             "\nWarning! The name entered is too long and may be truncated.\n");
-    printf("Enter price");
+    printf("Enter price ");
 
     scanf("%f", &arr2[i].price);
     simpleBufferClear();
-    printf("Enter pages");
+    printf("Enter pages ");
     scanf("%d", &arr2[i].pages);
     simpleBufferClear();
   }
+  // Separator
+  printf("\n");
   for (size_t i = 0; i != 2; i++) {
     // Clean up ending newline
     setupForPuts(arr2[i].name);
-    printf("Name ");
+    printf("Name: ");
     puts(arr2[i].name);
-    printf("price %f\n", arr2[i].price);
-    printf("pages %d\n", arr2[i].pages);
+    printf("Price: %f\n", arr2[i].price);
+    printf("Pages: %d\n", arr2[i].pages);
   }
   return 0;
 }
