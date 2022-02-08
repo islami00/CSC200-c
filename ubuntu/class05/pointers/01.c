@@ -3,12 +3,14 @@
 int main()
 
 {
-  float x, y;
-  float* z;
-  y = 10.0;
-  z = &y;
-  x = *z;
-  printf("x = %1$f", x);
-  // equivalent of x =  y;
+  int* ptr;
+  int c;
+
+  //
+  c = 5;
+
+  ptr = &c;
+  scanf("%d\n", &c);
+  printf("\naddress = %p and value = %d", ptr, *ptr);
   return 0;
 }

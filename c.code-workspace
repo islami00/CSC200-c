@@ -1,5 +1,9 @@
 {
-  "folders": [{ "path": "." }, { "path": "./ubuntu/assignment/second", "name": "assignment2" }],
+  "folders": [
+    { "path": "." },
+    { "path": "./ubuntu/assignment/second", "name": "assignment2" },
+    { "path": "../CSC-201-", "name": "CSC-SALIMCHAN" }
+  ],
 
   "settings": {
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
