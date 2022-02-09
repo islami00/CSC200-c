@@ -6,6 +6,11 @@ void strWarn(char* strptr, int maxLength, char* message);
 char* setupForPuts(char* stringPointer);
 // MaxBookName is constant because it's expanded as a macro by c. Interesting,
 // meaning we can also perform constant operations in macros for rust
+
+// To clarify, I was pretty close for this: https://devdocs.io/c/io/fscanf
+// The docs cover everything from scanf to fscanf.
+// The docs also show that using that bufferClear after the price has nothing to
+// do with whitespace removal.
 int main() {
   struct book {
     char name[MaxBookName];
@@ -24,6 +29,8 @@ int main() {
     printf("Enter price ");
 
     scanf("%f", &arr2[i].price);
+    // %d consumes whitespace, but I placed this here cuz can't trust user
+    // input. What if they provide a string??
     simpleBufferClear();
     printf("Enter pages ");
     scanf("%d", &arr2[i].pages);
