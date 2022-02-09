@@ -1,0 +1,2 @@
+The total score of the student is
+1448
