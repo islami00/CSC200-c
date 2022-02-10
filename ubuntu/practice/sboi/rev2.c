@@ -5,14 +5,11 @@ int main() {
   int a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
   int z[10];
   int i, j = 0;
-  for (i = 9; i >= 0; i--) {
-    printf("i %d", i);
-    printf("j %d", j);
-
+  for (i = 9; i >= 0; i--, j++) {
     z[j] = a[i];
-    j++;
   }
   prettyPrint(z, 10);
+
   return 0;
 }
 
