@@ -1,20 +1,21 @@
 #include <stdio.h>
-// Add this to utils header too.
+
 void prettyPrint(int* scores, size_t arr_size);
 int main() {
-  int scores[5] = {67, 74, 56, 90, 87};
-  while (scores[3] != 80) {
-    printf("Enter 80: ");
-    scanf("%d", &scores[3]);
-  }
-  while (scores[4] != 76) {
-    printf("Enter 76: ");
-    scanf("%d", &scores[4]);
-  }
-  prettyPrint(scores, 5);
+  int a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  int z[10];
+  int i, j = 0;
+  for (i = 9; i >= 0; i--) {
+    printf("i %d", i);
+    printf("j %d", j);
 
+    z[j] = a[i];
+    j++;
+  }
+  prettyPrint(z, 10);
   return 0;
 }
+
 void prettyPrint(int* scores, size_t arr_size) {
   size_t lastIndex = arr_size - 1;
   for (size_t i = 0; i < arr_size; i++) {

@@ -35,3 +35,5 @@ _Note_: `putc` is as generic as `fgets`, so it should also work for `stdout`. I 
 
 The EOF method does not work for getting the input because we are not reading from file, and that loop is specific for reading from files. No hacks can get around that.
 _More_: As you said, int and char are equivalent bin representation, so that shouldn't be an error in and of itself.
+
+_More_: EOF is entered using `ctrl+z`. It's `CTL-D` in ubuntu.

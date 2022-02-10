@@ -6,7 +6,7 @@ int main() {
   if (character == NULL) {
     printf("The file does not exist\n");
   }
-
+  // EOF is entered by ctrl+z
   while ((dept = getchar()) != '0') {
     if (dept == '\n') continue;
     printf("loop %c", dept);
